@@ -7,7 +7,17 @@ class Solution
 public:
     string toLowerCase(string s)
     {
-        
+        for(auto &c:s)
+        {
+            if(c>='A' && c<='Z')
+            {
+                //calculate offset(relative postion of alphabet) like 1 for A, 2 for B ....
+                int offset = c - ('A' - 1);
+
+                //add relative position to the character before 'a' like ('a' - 1) + 2 for offset 2 ('B')
+                c = ('a' - 1) + offset;
+            }
+        }
         return s;
     }
 };
