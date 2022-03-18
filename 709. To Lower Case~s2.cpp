@@ -2,11 +2,12 @@
 #include <iostream>
 #include <cctype>
 using namespace std;
-
+// time complexity : O(s.size())
+// space complexity : O(1)
 class Solution
 {
 public:
-    // using built-in function
+    // using range for + built-in function tolower
     string toLowerCase(string s)
     {
         for (auto &c : s)
