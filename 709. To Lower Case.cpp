@@ -1,7 +1,8 @@
 // https://leetcode.com/problems/to-lower-case/
 #include <bits/stdc++.h>
 using namespace std;
-
+// time complexity : O(s.size())
+// space complexity : O(1)
 class Solution
 {
 public:
