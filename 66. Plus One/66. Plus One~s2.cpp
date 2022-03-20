@@ -21,7 +21,8 @@ ostream &operator<<(ostream &out, const vector<T> &v)
 	out << endl;
 	return out;
 }
-
+//time-compelexity : O(digits.size())
+//space-complexity : O(1)
 class Solution
 {
 public:
