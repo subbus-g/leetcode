@@ -28,8 +28,9 @@ class Solution
 public:
     bool containsDuplicate(vector<int> &nums)
     {
-
+        //sort the nums
         sort(begin(nums), end(nums));
+        //and check if any two consective elements are equal are not
         for (auto it = begin(nums); it != end(nums) - 1; it++)
         {
             if (*it == *(it + 1))
