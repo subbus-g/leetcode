@@ -24,7 +24,7 @@ ostream &operator<<(ostream &out, const vector<T> &v)
     out << endl;
     return out;
 }
-// tc : O(1)
+// tc : O(n)
 // sc : O(n)
 // where n = nums.size()
 class Solution
@@ -32,7 +32,11 @@ class Solution
 public:
     bool containsDuplicate(vector<int> &nums)
     {
+        //copy the all the elements from vector to unordered_set
+        //each insertion(insertion of one element)takes O(1)...so for n elements of nums...O(n)
         unordered_set nums_set(begin(nums), end(nums));
+        //since unordered_set doesn't store repeated element again, it contains unique elements
+        //size mismatch of vector and set implies vector containing duplicates
         return nums_set.size() < nums.size();
     }
 };
