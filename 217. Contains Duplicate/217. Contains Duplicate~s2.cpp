@@ -24,7 +24,7 @@ ostream &operator<<(ostream &out, const vector<T> &v)
     out << endl;
     return out;
 }
-// tc : O(n)
+// tc : O(1)
 // sc : O(n)
 // where n = nums.size()
 class Solution
