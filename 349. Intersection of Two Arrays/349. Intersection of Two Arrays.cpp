@@ -57,6 +57,10 @@ public:
 
       return result;
    }
+   //TC : Θ(n + m) in average case
+   //SC : Θ(n + m) in worst case
+   //where n = size(num1), m=size(nums2)
+
 };
 
 int main()
