@@ -42,14 +42,14 @@ public:
 		// create result vector to store the unique common elements
 		vector<int> result;
 
-		//for every element,x,of nums1
+		// for every element,x,of nums1
 		for (const auto &x : nums1)
 		{
-			//if it is present in num2
-			//but not present in unique common elements list,result
+			// if it is present in num2
+			// but not present in unique common elements list,result
 			if (binary_search(begin(nums2), end(nums2), x) && !binary_search(begin(result), end(result), x))
 			{
-				//add it to result
+				// add it to result
 				result.push_back(x);
 			}
 		}
@@ -63,8 +63,8 @@ public:
 int main()
 {
 #ifndef ONLINE_JUDGE
-	freopen("0.1-in.txt", "r", stdin);
-	freopen("0.3-out.txt", "w", stdout);
+	freopen("0-!n.txt", "r", stdin);
+	freopen("0-out.txt", "w", stdout);
 #endif
 	std::ios::sync_with_stdio(false);
 	cin.tie(nullptr);

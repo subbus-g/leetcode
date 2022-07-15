@@ -23,9 +23,8 @@ template <typename T>
 ostream &operator<<(ostream &out, const vector<T> &v)
 {
    out << "[";
-   for_each(begin(v), end(v) - 1,[&](const auto& element){
-      out << element << ",";
-   } );
+   for_each(begin(v), end(v) - 1, [&](const auto &element)
+            { out << element << ","; });
    out << v.back() << "]" << endl;
 
    return out;
@@ -36,33 +35,31 @@ class Solution
 public:
    vector<int> intersection(vector<int> &nums1, vector<int> &nums2)
    {
-       unordered_set<int> set2(begin(nums2),end(nums2));
-       vector<int> result;
-       for(const auto& x:nums1)
-       {
-           //if x is present in set2, then add it to result
-           //also erase x in set so that
-           //if we encounter x again in nums1, we couldn't find it in set2 and don't add to result
-           //leading to result vector without duplicate
-           if(set2.erase(x))
-           {
-               result.push_back(x);
-           }
-       }
-       return result;
-
+      unordered_set<int> set2(begin(nums2), end(nums2));
+      vector<int> result;
+      for (const auto &x : nums1)
+      {
+         // if x is present in set2, then add it to result
+         // also erase x in set so that
+         // if we encounter x again in nums1, we couldn't find it in set2 and don't add to result
+         // leading to result vector without duplicate
+         if (set2.erase(x))
+         {
+            result.push_back(x);
+         }
+      }
+      return result;
    }
-   //TC : Θ(n + m) in average case
-   //SC : Θ(m) in worst case
-   //where n = size(num1), m=size(nums2)
-
+   // TC : Θ(n + m) in average case
+   // SC : Θ(m) in worst case
+   // where n = size(num1), m=size(nums2)
 };
 
 int main()
 {
 #ifndef ONLINE_JUDGE
-   freopen("0.1-in.txt", "r", stdin);
-   freopen("0.3-out.txt", "w", stdout);
+   freopen("0-!n.txt", "r", stdin);
+   freopen("0-out.txt", "w", stdout);
 #endif
    std::ios::sync_with_stdio(false);
    cin.tie(nullptr);

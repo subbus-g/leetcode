@@ -1,21 +1,24 @@
 // https://leetcode.com/problems/to-lower-case/
-#include <bits/stdc++.h>
+#include <iostream>
+#include <cctype>
+#include <algorithm>
+#include <iterator>
 using namespace std;
 // time complexity : O(s.size())
 // space complexity : O(1)
 class Solution
 {
 public:
+    // using built-in function and stl algorithm for_each
     string toLowerCase(string s)
     {
-        for(auto &c:s)
-        {
-            if(c>='A' && c<='Z')
-            {
-                //calcutating distance of c from 'A' and traveling that distance from 'a'
-                c = (c - 'A') + 'a';
-            }
-        }
+
+        for_each(s.begin(), s.end(), [](char &s)
+                 {
+                if(isupper(s))
+                {
+                    s = tolower(s);
+                } });
         return s;
     }
 };
@@ -23,8 +26,8 @@ public:
 int main()
 {
 #ifndef ONLINE_JUDGE
-    freopen("0.1-in.txt", "r", stdin);
-    freopen("0.3-out.txt", "w", stdout);
+    freopen("0-!n.txt", "r", stdin);
+    freopen("0-out.txt", "w", stdout);
 #endif
     std::ios::sync_with_stdio(false);
     Solution sol;

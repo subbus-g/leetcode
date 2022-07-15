@@ -31,32 +31,32 @@ ostream &operator<<(ostream &out, const vector<T> &v)
 class Solution
 {
 public:
-	//brue force approach
+	// brue force approach
 	int lastStoneWeight(vector<int> &stones)
 	{
-		//while there are atleast 2 stones
+		// while there are atleast 2 stones
 		while (stones.size() >= 2)
 		{
-			//sort the weights
+			// sort the weights
 			sort(begin(stones), end(stones));
 
-			//remove highest weight stone, second highest weighted stone
-			//and assign to s1,s2
+			// remove highest weight stone, second highest weighted stone
+			// and assign to s1,s2
 			int s1 = *stones.erase(end(stones) - 1);
 			int s2 = *stones.erase(end(stones) - 1);
 
-			//if they are not equal
+			// if they are not equal
 			if (s1 != s2)
 			{
-				//add the new weight
+				// add the new weight
 				stones.push_back(abs(s1 - s2));
 			}
 		}
-		//return left stone weight , if there are no stones return 0
+		// return left stone weight , if there are no stones return 0
 		return stones.size() ? stones.front() : 0;
 	}
 	// TC : Θ(n * nlogn) = O(n^2 logn) in worst case
-	//while loop runs atmost n times and sorting takes O(n logn)
+	// while loop runs atmost n times and sorting takes O(n logn)
 	// SC : Θ(1) in worst case
 	// where n = number of stones
 };
@@ -64,13 +64,13 @@ public:
 int main()
 {
 #ifndef ONLINE_JUDGE
-	freopen("0.1-in.txt", "r", stdin);
-	freopen("0.3-out.txt", "w", stdout);
+	freopen("0-!n.txt", "r", stdin);
+	freopen("0-out.txt", "w", stdout);
 #endif
 	std::ios::sync_with_stdio(false);
 	cin.tie(nullptr);
 	cout.tie(nullptr);
-	Solution sol;
+	Solution sol; 
 	int t;
 	cin >> t;
 	while (t--)

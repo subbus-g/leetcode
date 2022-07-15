@@ -1,18 +1,19 @@
 // https://leetcode.com/problems/to-lower-case/
 #include <iostream>
 #include <cctype>
-#include <algorithm>
-#include <iterator>
 using namespace std;
 // time complexity : O(s.size())
 // space complexity : O(1)
 class Solution
 {
 public:
-    // using built-in function and stl algorithm transform
+    // using range for + built-in function tolower
     string toLowerCase(string s)
     {
-        transform(s.begin(), s.end(), s.begin(), ::tolower);
+        for (auto &c : s)
+        {
+            c = tolower(c);
+        }
         return s;
     }
 };
@@ -20,8 +21,8 @@ public:
 int main()
 {
 #ifndef ONLINE_JUDGE
-    freopen("0.1-in.txt", "r", stdin);
-    freopen("0.3-out.txt", "w", stdout);
+    freopen("0-!n.txt", "r", stdin);
+    freopen("0-out.txt", "w", stdout);
 #endif
     std::ios::sync_with_stdio(false);
     Solution sol;

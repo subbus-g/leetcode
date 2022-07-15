@@ -23,9 +23,8 @@ template <typename T>
 ostream &operator<<(ostream &out, const vector<T> &v)
 {
    out << "[";
-   for_each(begin(v), end(v) - 1,[&](const auto& element){
-      out << element << ",";
-   } );
+   for_each(begin(v), end(v) - 1, [&](const auto &element)
+            { out << element << ","; });
    out << v.back() << "]" << endl;
 
    return out;
@@ -36,38 +35,37 @@ class Solution
 public:
    vector<int> intersection(vector<int> &nums1, vector<int> &nums2)
    {
-      //create two sets from the values of given two input vectors
+      // create two sets from the values of given two input vectors
       unordered_set<int> set1(begin(nums1), end(nums1));
       unordered_set<int> set2(begin(nums2), end(nums2));
 
-      //create result vector to store the unique common elements
+      // create result vector to store the unique common elements
       vector<int> result;
 
-      //for each element in set 1
+      // for each element in set 1
       for (auto x : set1)
       {
-         //if it is present on set2
+         // if it is present on set2
          if (set2.find(x) != set2.end())
          {
-            //store it in result
-            //since set1 is set,no duplicates will be stored in result
+            // store it in result
+            // since set1 is set,no duplicates will be stored in result
             result.push_back(x);
          }
       }
 
       return result;
    }
-   //TC : Θ(n + m) in average case
-   //SC : Θ(n + m) in worst case
-   //where n = size(num1), m=size(nums2)
-
+   // TC : Θ(n + m) in average case
+   // SC : Θ(n + m) in worst case
+   // where n = size(num1), m=size(nums2)
 };
 
 int main()
 {
 #ifndef ONLINE_JUDGE
-   freopen("0.1-in.txt", "r", stdin);
-   freopen("0.3-out.txt", "w", stdout);
+   freopen("0-!n.txt", "r", stdin);
+   freopen("0-out.txt", "w", stdout);
 #endif
    std::ios::sync_with_stdio(false);
    cin.tie(nullptr);

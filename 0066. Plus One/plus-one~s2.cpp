@@ -21,8 +21,8 @@ ostream &operator<<(ostream &out, const vector<T> &v)
 	out << endl;
 	return out;
 }
-//time-compelexity : O(digits.size())
-//space-complexity : O(1)
+// time-compelexity : O(digits.size())
+// space-complexity : O(1)
 class Solution
 {
 public:
@@ -42,8 +42,8 @@ public:
 			*it = 0;
 		}
 		// for numbers containing all 0's
-		//add another 0 at the end and
-		//replace the 0 at the front with 1 so that orginal number will be incremented by 1
+		// add another 0 at the end and
+		// replace the 0 at the front with 1 so that orginal number will be incremented by 1
 		digits.push_back(0);
 		digits.front() = 1;
 		return digits;
@@ -52,8 +52,8 @@ public:
 int main()
 {
 #ifndef ONLINE_JUDGE
-	freopen("0.1-in.txt", "r", stdin);
-	freopen("0.3-out.txt", "w", stdout);
+	freopen("0-!n.txt", "r", stdin);
+	freopen("0-out.txt", "w", stdout);
 #endif
 	std::ios::sync_with_stdio(false);
 	Solution sol;

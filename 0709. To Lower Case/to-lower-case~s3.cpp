@@ -9,17 +9,10 @@ using namespace std;
 class Solution
 {
 public:
-    // using built-in function and stl algorithm for_each
+    // using built-in function and stl algorithm transform
     string toLowerCase(string s)
     {
-
-        for_each(s.begin(), s.end(), [](char &s)
-            {
-                if(isupper(s))
-                {
-                    s = tolower(s);
-                }
-            });
+        transform(s.begin(), s.end(), s.begin(), ::tolower);
         return s;
     }
 };
@@ -27,8 +20,8 @@ public:
 int main()
 {
 #ifndef ONLINE_JUDGE
-    freopen("0.1-in.txt", "r", stdin);
-    freopen("0.3-out.txt", "w", stdout);
+    freopen("0-!n.txt", "r", stdin);
+    freopen("0-out.txt", "w", stdout);
 #endif
     std::ios::sync_with_stdio(false);
     Solution sol;
