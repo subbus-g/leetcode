@@ -39,11 +39,12 @@ struct ListNode
 	ListNode(int x) : val(x), next(nullptr) {}
 	ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
-class Solution
+class LinkedList
 {
-
 public:
 	ListNode *sentinel = new ListNode(-1);
+
+public:
 	void insertEnd(int x)
 	{
 		ListNode *ptr;
@@ -67,24 +68,53 @@ public:
 
 		cout << "]" << endl;
 	}
+	void print(ListNode *head)
+	{
+		// attach sentinel before head
+		auto sentinel = new ListNode(-1, head);
+
+		if (!sentinel->next)
+		{
+			cout << "[]" << endl;
+			return;
+		}
+		cout << "[" << sentinel->next->val;
+		for (auto ptr = sentinel->next->next; ptr; ptr = ptr->next)
+		{
+			cout << "," << ptr->val;
+		}
+
+		cout << "]" << endl;
+	}
+};
+class Solution
+{
+public:
 	ListNode *removeNthFromEnd(ListNode *head, int n)
 	{
-		sentinel->next = head;
-		int size;
-		ListNode *ptr;
-		for (size = 0, ptr = sentinel->next; ptr; size++, ptr = ptr->next)
-		{
-		}
-		// cout << size << endl;
-		int position = size - n + 1;
-		int i;
-		for (i = 0, ptr = sentinel; ptr && i != (position - 1); i++, ptr = ptr->next)
-		{
-		}
-		auto ntd = ptr->next;
+		// attach sentinel before head
+		auto sentinel = new ListNode(-1, head);
 
+		// count the numbers of nodes in the linked list
+		int sz;
+		ListNode *ptr;
+		for (sz = 0, ptr = sentinel->next; ptr; sz++, ptr = ptr->next)
+		{
+		}
+
+		// calculate position of the node from starting using size of the linked list
+		int position = sz - n + 1;
+
+		// traverse till before the node which is to be removed
+		int i;
+		for (i = 0, ptr = sentinel; i != (position - 1); i++, ptr = ptr->next)
+		{
+		}
+
+		// arrange the links and delete the node
+		auto nodeToDelete = ptr->next;
 		ptr->next = ptr->next->next;
-		delete ntd;
+		delete nodeToDelete;
 		return sentinel->next;
 	}
 };
@@ -104,17 +134,18 @@ int main()
 		int x;
 		cin >> s >> x;
 
-		istringstream ll(s);
+		istringstream iss(s);
 		vector<int> vec;
-		ll >> vec;
+		iss >> vec;
 
-		Solution sol;
+		LinkedList ll;
 		for (auto &x : vec)
 		{
-			sol.insertEnd(x);
+			ll.insertEnd(x);
 		}
-		sol.removeNthFromEnd(sol.sentinel->next, x);
-		sol.print();
+
+		Solution sol;
+		ll.print(sol.removeNthFromEnd(ll.sentinel->next, x));
 		cout << endl;
 	}
 
