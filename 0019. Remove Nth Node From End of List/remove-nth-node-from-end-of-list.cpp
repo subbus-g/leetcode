@@ -45,14 +45,6 @@ public:
 	ListNode *sentinel = new ListNode(-1);
 
 public:
-	void insertEnd(int x)
-	{
-		ListNode *ptr;
-		for (ptr = sentinel; ptr->next; ptr = ptr->next)
-		{
-		}
-		ptr->next = new ListNode(x);
-	}
 	void print()
 	{
 		if (!sentinel->next)
@@ -68,23 +60,13 @@ public:
 
 		cout << "]" << endl;
 	}
-	void print(ListNode *head)
+	void insertEnd(int x)
 	{
-		// attach sentinel before head
-		auto sentinel = new ListNode(-1, head);
-
-		if (!sentinel->next)
+		ListNode *ptr;
+		for (ptr = sentinel; ptr->next; ptr = ptr->next)
 		{
-			cout << "[]" << endl;
-			return;
 		}
-		cout << "[" << sentinel->next->val;
-		for (auto ptr = sentinel->next->next; ptr; ptr = ptr->next)
-		{
-			cout << "," << ptr->val;
-		}
-
-		cout << "]" << endl;
+		ptr->next = new ListNode(x);
 	}
 };
 class Solution
@@ -145,7 +127,8 @@ int main()
 		}
 
 		Solution sol;
-		ll.print(sol.removeNthFromEnd(ll.sentinel->next, x));
+		ll.sentinel->next = sol.removeNthFromEnd(ll.sentinel->next, x);
+		ll.print();
 		cout << endl;
 	}
 
