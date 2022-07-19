@@ -72,11 +72,13 @@ public:
 class Solution
 {
 public:
-	ListNode *removeNthFromEnd(ListNode *head, int n)
+	// using length of the list
+	ListNode *removeNthFromEnd(ListNode *head, int n) // O(n) - time, O(1) - memory
 	{
 		// attach sentinel before head
 		auto sentinel = new ListNode(-1, head);
 
+		//1
 		// count the numbers of nodes in the linked list
 		int sz;
 		ListNode *ptr;
@@ -84,15 +86,16 @@ public:
 		{
 		}
 
+		//2
 		// calculate position of the node from starting using size of the linked list
+		// and traverse till before the node which is to be removed
 		int position = sz - n + 1;
-
-		// traverse till before the node which is to be removed
 		int i;
 		for (i = 0, ptr = sentinel; i != (position - 1); i++, ptr = ptr->next)
 		{
 		}
 
+		//3
 		// arrange the links and delete the node
 		auto nodeToDelete = ptr->next;
 		ptr->next = ptr->next->next;
