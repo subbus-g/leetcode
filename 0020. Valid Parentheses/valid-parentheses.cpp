@@ -33,24 +33,22 @@ ostream &operator<<(ostream &out, const vector<T> &v)
 class Solution
 {
 public:
-	bool isValid(string s)
+	bool isValid(string s) // time - O(n), memory - O(1)
 	{
 		map<char, char> closed_pareentheses = {{'(', ')'}, {'[', ']'}, {'{', '}'}};
 		stack<char> stk;
+		char ex_top;
 		for (auto &c : s)
 		{
-			//if  c  is open parentheses
+			// if  c  is open parentheses
 			if (closed_pareentheses.find(c) != closed_pareentheses.end())
 			{
 				stk.push(c);
 			}
-			//if c is closed parenthesis
-			//check if  c matches to existing opening parenthesis
-			else if (!stk.empty() && c == closed_pareentheses[stk.top()])
-			{
-				stk.pop();
-			}
-			else
+			// if c is closed parenthesis
+			// check if  c matches to existing opening parenthesis
+
+			else if (stk.empty() || (ex_top = stk.top(),stk.pop(), c != closed_pareentheses[ex_top]))
 			{
 				return false;
 			}
