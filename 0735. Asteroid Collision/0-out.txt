@@ -1,0 +1,9 @@
+stack of elements : [ 10 5]
+[5,10,-5]
+
+stack of elements : []
+[8,-8]
+
+stack of elements : [ 10]
+[10,2,-5]
+
