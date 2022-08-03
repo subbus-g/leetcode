@@ -34,22 +34,12 @@ ostream &operator<<(ostream &out, const vector<T> &v)
 class Solution
 {
 public:
-	void rotate(vector<int> &nums)
-	{
-		int stash = nums[nums.size() - 1];
-		for (int i = nums.size() - 1; i > 0; i--)
-		{
-			nums[i] = nums[i - 1];
-		}
-		nums[0] = stash;
-	}
 	void rotate(vector<int> &nums, int k)
 	{
 		k %= nums.size();
-		while (k--)
-		{
-			rotate(nums);
-		}
+		reverse(nums.begin(), nums.end());
+		reverse(nums.begin(), nums.begin() + k);
+		reverse(nums.begin() + k, nums.end());
 	}
 };
 int main()
